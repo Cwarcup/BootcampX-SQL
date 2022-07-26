@@ -44,3 +44,4 @@ CREATE TABLE assignment_submissions (
   submission_date DATE
 );
 ```
+![erd](https://i.imgur.com/ReIYHPC.png)
