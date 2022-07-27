@@ -26,11 +26,6 @@ ORDER BY
   teachers.name;
   `;
 
-
-console.log('queryString:', queryString);
-console.log('values:', values);
-
-
 pool
   .query(queryString, values)
   .then(res => {
