@@ -7,11 +7,15 @@ const pool = new Pool({
   database: 'bootcampx'
 });
 
+const cohortName = process.argv[2];
+const queryLimit = process.argv[3] || 5;
+
 pool.query(`
     SELECT students.id, students.name, cohorts.name AS cohort_name
     FROM students
     JOIN cohorts ON cohorts.id = students.cohort_id
-    LIMIT 5;
+    WHERE cohorts.name LIKE '%${cohortName}%'
+    LIMIT ${queryLimit};
   `)
   .then(res => {
     res.rows.forEach(user => {
